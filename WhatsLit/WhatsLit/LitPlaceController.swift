@@ -31,8 +31,7 @@ class LitPlaceController {
                 return completion(nil, error)
             }
             
-            let places = response.mapItems as! [LitPlace]
-            
+            let places = response.mapItems.compactMap({LitPlace(video: nil, rating: nil, mapItem: $0)})
             completion(places, nil)
             
         }

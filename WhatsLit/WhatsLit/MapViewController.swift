@@ -22,27 +22,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self;
         centerMapOnLocation(location: initialLocation)
         
+        fetchClubs()
+        
     }
     
     // MARK: - MapViewDelegate / CoreLocation
     
-
-//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-//        //this runs every time the location is updated so possible battery drain, look at requestLocation() for onetime request
-////        mapView.setCenter(mapView.userLocation.coordinate, animated: true)
-//        print("hit")
-//        let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 400, longitudinalMeters: 400)
-//
-//        mapView.setRegion(region, animated: true)
-//
-//
-//    }
-
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == CLAuthorizationStatus.authorizedWhenInUse {
-//            locationManager.startUpdatingLocation()
-//        }
-//    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("Could not find location due to error: \(error)");
@@ -63,37 +48,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         manager.stopUpdatingLocation()
     }
 
-    // func to create annotations
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        let identifier = "mapAnnotation"
-//
-//        // custom image annotation
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//        if (annotation.coordinate.longitude == mapView.userLocation.coordinate.longitude
-//            && annotation.coordinate.latitude == mapView.userLocation.coordinate.latitude) {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView?.image = UIImage(named: "QuakeIcon")
-//        }
-//
-//        return annotationView
-//    }
-    
-    
-    // MARK: - Navigation
+//    // func to create annotations
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "mapAnnotation"
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // custom image annotation
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+
+        return annotationView
     }
     
+    private func fetchClubs(){
+        
+        litPlaceController.fetchLitPlaces(with: "Clubs", region: mapView.region) { (places, error) in
+            
+            if let error = error {
+                NSLog("There was an \(error)")
+                return
+            }
+            
+            guard let places = places?.compactMap({$0.mapItem}) else {return}
+            
+            let annotations = places.compactMap({$0.placemark})
+
+            self.mapView.addAnnotations(annotations)
+        }
+        
+    }
+
     // MARK: - Private Methods
     
     
     @IBAction func zoomIntoUser(_ sender: Any) {
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-        
     }
     
     
@@ -103,11 +92,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    
     // MARK: - Properties
     
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
+    let litPlaceController = LitPlaceController()
     
     let initialLocation = CLLocation(latitude: 37.760527, longitude: -122.443776)
     

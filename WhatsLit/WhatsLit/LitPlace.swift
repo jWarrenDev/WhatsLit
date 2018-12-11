@@ -10,11 +10,20 @@ import Foundation
 import CoreLocation
 import MapKit
 
-class LitPlace: MKMapItem {
+class LitPlace {
     var video: Data?
+    var id: String?
     var rating: Double?
     var timestamp: String?
+    var mapItem: MKMapItem?
     
-    // TODO Create Places Controller and fetch results from MKSearchPlaces
-    // TODO Create firebase for storage and login
+    init(video: Data?, rating: Double?, id:String = UUID().uuidString, timestamp: String = Date().description, mapItem: MKMapItem?) {
+        
+        self.video = video
+        self.rating = rating
+        self.id = id
+        self.timestamp = timestamp
+        self.mapItem = mapItem
+        
+    }
 }
