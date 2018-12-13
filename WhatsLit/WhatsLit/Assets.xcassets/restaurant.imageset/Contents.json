@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "djicon.pdf",
+      "filename" : "foodicon.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "foodicon-1.pdf",
       "scale" : "2x"
     },
     {

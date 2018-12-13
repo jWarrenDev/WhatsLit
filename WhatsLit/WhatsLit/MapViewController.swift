@@ -22,7 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self;
         centerMapOnLocation(location: initialLocation)
         
-        fetchClubs()
+        fetchRestaurants()
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 
@@ -30,7 +30,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // MARK: - MapViewDelegate / CoreLocation
-    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("Could not find location due to error: \(error)");
@@ -57,25 +56,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // custom image annotation
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: litPlace) as! MKMarkerAnnotationView
-        
+        annotationView.glyphImage = UIImage(named: litPlace.type!)
         
         if annotation is MKUserLocation { return nil }
         
         else {
+            
             annotationView.displayPriority = .required
+            
+            if litPlace.type == "club" {
+                annotationView.markerTintColor = .purple
+            } else if litPlace.type == "restaurant" {
+                annotationView.markerTintColor = .brown
+            } else if litPlace.type == "bar" {
+                annotationView.markerTintColor = .orange
+            }
             annotationView.glyphTintColor = .white
-            annotationView.markerTintColor = .purple
+            
 //            annotationView.canShowCallout = true
             annotationView.isUserInteractionEnabled = true
             annotationView.calloutOffset = CGPoint(x: -5, y: 5)
-            annotationView.glyphImage = UIImage(named: "djicon")
-            annotationView.canShowCallout = true
-
+            
+            
         return annotationView
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        //TODO : make segue to detail View or show table view of stories
         let selectedAnnotation = view.annotation
         print(selectedAnnotation?.description)
     }
@@ -94,6 +103,53 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
             guard let places = places else {return}
+            for place in places {
+                place.type = "club"
+            }
+            
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(places)
+            }
+            
+        }
+        
+    }
+    
+    private func fetchRestaurants(){
+        
+        litPlaceController.fetchLitPlaces(with: "Restaurants", region: mapView.region) { (places, error) in
+            
+            if let error = error {
+                NSLog("There was an \(error)")
+                return
+            }
+            
+            guard let places = places else {return}
+            for place in places {
+                place.type = "restaurant"
+            }
+            
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(places)
+            }
+            
+        }
+        
+    }
+    
+    private func fetchBars(){
+        
+        litPlaceController.fetchLitPlaces(with: "Bars", region: mapView.region) { (places, error) in
+            
+            if let error = error {
+                NSLog("There was an \(error)")
+                return
+            }
+            
+            guard let places = places else {return}
+            for place in places {
+                place.type = "bar"
+            }
             
             DispatchQueue.main.async {
                 self.mapView.addAnnotations(places)
@@ -107,6 +163,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
 //        fetchClubs()
+        fetchRestaurants()
     }
     
     

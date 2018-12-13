@@ -20,8 +20,9 @@ class LitPlace: NSObject, MKAnnotation {
     var rating: Double?
     var timestamp: String?
     var mapItem: MKMapItem?
+    var type: String?
     
-    init(video: Data?, rating: Double?, id:String = UUID().uuidString, timestamp: String = Date().description, mapItem: MKMapItem?) {
+    init(video: Data?, rating: Double?, id:String = UUID().uuidString, timestamp: String = Date().description, type: String?, mapItem: MKMapItem?) {
         
         self.video = video
         self.rating = rating
@@ -30,6 +31,7 @@ class LitPlace: NSObject, MKAnnotation {
         self.title = mapItem?.placemark.name
         self.url = mapItem?.url
         self.phoneNumber = mapItem?.phoneNumber
+        self.type = type
         self.coordinate = (mapItem?.placemark.coordinate)!
         
     }
