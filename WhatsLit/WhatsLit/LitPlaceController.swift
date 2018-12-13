@@ -13,7 +13,7 @@ class LitPlaceController {
     
     private(set) var places = [LitPlace]()
     
-    func addVideo(video:Data, rating: Double, place: LitPlace){
+    func addVideo(video:URL, rating: Double, place: LitPlace){
         
         guard let index = places.firstIndex(of: place) else {NSLog("No Index"); return}
         let newPlace = place
@@ -22,6 +22,18 @@ class LitPlaceController {
         places.remove(at: index)
         places.insert(newPlace, at: index)
         
+    }
+    
+    func getLitPlace(with name:String) -> LitPlace?{
+        
+        var result = LitPlace(video: nil, rating: nil, type: nil, mapItem: nil)
+        
+        for place in places {
+            if place.title == name {
+                result = place
+            }
+        }
+        return result
     }
     
     func fetchLitPlaces(with name: String, region: MKCoordinateRegion, completion: @escaping ([LitPlace]? , Error?) -> Void){

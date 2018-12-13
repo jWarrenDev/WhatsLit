@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CardStackController
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CardStackControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         fetchLit()
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
 
         
     }
@@ -86,7 +88,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         //TODO : make segue to detail View or show table view of stories
-        self.performSegue(withIdentifier: "showDetail", sender: self)
+        
+        guard let annotation = mapView.selectedAnnotations.first else {return}
+        if annotation.isKind(of: MKClusterAnnotation.self){
+            return
+        }
+        
+        performSegue(withIdentifier: "showDetail", sender: self)
+        
     }
     
   
@@ -94,12 +103,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: - Private Methods
     
     
-    @IBAction func allEvents(_ sender: Any) {
-        DispatchQueue.main.async {
-            self.mapView.removeAnnotations(self.mapView.annotations)
-        }
-        fetchLit()
-    }
+//    @IBAction func allEvents(_ sender: Any) {
+//        DispatchQueue.main.async {
+//            self.mapView.removeAnnotations(self.mapView.annotations)
+//        }
+//        fetchLit()
+//    }
     
     private func fetchLit(){
         // Populate with most recently posted
@@ -221,6 +230,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //TODO: send to detail view controller and prepare for camera + video
+        if segue.identifier == "showDetail" {
+            let destVC = segue.destination as? CameraViewController
+            guard let annotation = mapView.selectedAnnotations.first else {return}
+//            if annotation.isKind(of: MKClusterAnnotation.self){
+//                fatalError()
+//            }
+            guard let title = annotation.title else {return}
+            let place = litPlaceController.getLitPlace(with: title!)
+            destVC?.place = place
+        }
+        
     }
     
     // MARK: - Properties

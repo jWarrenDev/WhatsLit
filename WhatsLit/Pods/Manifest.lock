@@ -1,0 +1,16 @@
+PODS:
+  - CardStackController (0.1.1)
+
+DEPENDENCIES:
+  - CardStackController (~> 0.1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CardStackController
+
+SPEC CHECKSUMS:
+  CardStackController: c534fd88dcdd150ab404c2d963370a2701bfcf68
+
+PODFILE CHECKSUM: 5fb000c6cbc0ff293af7db533e37dd7ae58de3f2
+
+COCOAPODS: 1.5.3

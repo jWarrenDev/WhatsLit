@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EA5AB6574F9689012C4EAE4AF1A9088 /* CardStackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CB51582184A735D5FFACBBEC7C7E6 /* CardStackController.swift */; };
+		717AA6F14F6D1B2D585EF17C8F83F64D /* CardStackController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA66CC8881B27DBF720E236FDBB23FF /* CardStackController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FE9E0321B45743ED7BA57A364C9393F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B66ABC05D0A3AF7096D2CEBE5F16B12 /* Helpers.swift */; };
+		A18AD6E78902E90276792FF87CC7B8D1 /* CardStackController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D77F2C779EB90B21474DBCF6542FE9 /* CardStackController-dummy.m */; };
+		A5C092ADFFF9F838AA822DB637756828 /* Pods-WhatsLit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C4ED4EDDB009D40E4A4586ECCB5A2D /* Pods-WhatsLit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D007883E6D94562F0A6D325C7EAA87A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		D94C1EE01D8FD7AF612EEEF2E1F217CD /* Pods-WhatsLit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4E225ABE2CA8BB829C463CA0275478 /* Pods-WhatsLit-dummy.m */; };
+		F87C0D8424BBEFD0CA49094AE48E67CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08DD6726C58C571A2B529305BB4DDC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF2284EFE8D794DE537CE1E787AD7678;
+			remoteInfo = CardStackController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		034B37BC9C07BB0CB8046A12404A5DC5 /* Pods_WhatsLit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WhatsLit.framework; path = "Pods-WhatsLit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		043086DD4A7E9DF9AFB20C666E693059 /* Pods-WhatsLit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WhatsLit-frameworks.sh"; sourceTree = "<group>"; };
+		0D6CB51582184A735D5FFACBBEC7C7E6 /* CardStackController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardStackController.swift; path = CardStackController/Classes/CardStackController.swift; sourceTree = "<group>"; };
+		14C4ED4EDDB009D40E4A4586ECCB5A2D /* Pods-WhatsLit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WhatsLit-umbrella.h"; sourceTree = "<group>"; };
+		1B66ABC05D0A3AF7096D2CEBE5F16B12 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = CardStackController/Classes/Helpers.swift; sourceTree = "<group>"; };
+		26D77F2C779EB90B21474DBCF6542FE9 /* CardStackController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CardStackController-dummy.m"; sourceTree = "<group>"; };
+		2A742764A435DFC283317DB27BD70766 /* Pods-WhatsLit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WhatsLit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		57433E2C2E10348F2045B62139C6D3D2 /* CardStackController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CardStackController-prefix.pch"; sourceTree = "<group>"; };
+		5DD74D904360569504C34504D3FFB700 /* Pods-WhatsLit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WhatsLit-resources.sh"; sourceTree = "<group>"; };
+		61350514DD2D0E778B5AC5023FA5D31E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6826A37D17CEE0E031FA595C45547FE2 /* Pods-WhatsLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WhatsLit.debug.xcconfig"; sourceTree = "<group>"; };
+		76B1530177256CAEAB46F891C9B00112 /* CardStackController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CardStackController.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A46FC3BEF26C47C4A32174FA1A6860B4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA4E225ABE2CA8BB829C463CA0275478 /* Pods-WhatsLit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WhatsLit-dummy.m"; sourceTree = "<group>"; };
+		AD583C98839C6B78D784C0E1D683EED4 /* CardStackController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CardStackController.framework; path = CardStackController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD2BAB0FAADE228BACD7E3C0E8990ED /* CardStackController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CardStackController.modulemap; sourceTree = "<group>"; };
+		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DAA66CC8881B27DBF720E236FDBB23FF /* CardStackController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CardStackController-umbrella.h"; sourceTree = "<group>"; };
+		DC9114A8F3B890DD9BEC0B74DCA42AD1 /* Pods-WhatsLit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WhatsLit-acknowledgements.plist"; sourceTree = "<group>"; };
+		E18C283A18388D8736C78C07BBE8E196 /* Pods-WhatsLit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WhatsLit.modulemap"; sourceTree = "<group>"; };
+		F0D716EB6EE7EA4EBEEE34BA04FCEE9D /* Pods-WhatsLit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WhatsLit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E03B2526CEDE646DFC0ABF38E510420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D007883E6D94562F0A6D325C7EAA87A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7EB46DBC3A8C6B0857B1CC4165BF9A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F87C0D8424BBEFD0CA49094AE48E67CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09E8D4D0CC9611056A2D9006383B0B22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD583C98839C6B78D784C0E1D683EED4 /* CardStackController.framework */,
+				034B37BC9C07BB0CB8046A12404A5DC5 /* Pods_WhatsLit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44D5347904CF754D6785B84253F2574A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4E621F680188D55A6FFC1E3290D6A99C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCD2BAB0FAADE228BACD7E3C0E8990ED /* CardStackController.modulemap */,
+				76B1530177256CAEAB46F891C9B00112 /* CardStackController.xcconfig */,
+				26D77F2C779EB90B21474DBCF6542FE9 /* CardStackController-dummy.m */,
+				57433E2C2E10348F2045B62139C6D3D2 /* CardStackController-prefix.pch */,
+				DAA66CC8881B27DBF720E236FDBB23FF /* CardStackController-umbrella.h */,
+				61350514DD2D0E778B5AC5023FA5D31E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CardStackController";
+			sourceTree = "<group>";
+		};
+		5781E5252085FCD1BF5A6BEDBE23D2C5 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73BBD955164E86EA7371DE61F02988FB /* Pods-WhatsLit */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		73BBD955164E86EA7371DE61F02988FB /* Pods-WhatsLit */ = {
+			isa = PBXGroup;
+			children = (
+				A46FC3BEF26C47C4A32174FA1A6860B4 /* Info.plist */,
+				E18C283A18388D8736C78C07BBE8E196 /* Pods-WhatsLit.modulemap */,
+				2A742764A435DFC283317DB27BD70766 /* Pods-WhatsLit-acknowledgements.markdown */,
+				DC9114A8F3B890DD9BEC0B74DCA42AD1 /* Pods-WhatsLit-acknowledgements.plist */,
+				AA4E225ABE2CA8BB829C463CA0275478 /* Pods-WhatsLit-dummy.m */,
+				043086DD4A7E9DF9AFB20C666E693059 /* Pods-WhatsLit-frameworks.sh */,
+				5DD74D904360569504C34504D3FFB700 /* Pods-WhatsLit-resources.sh */,
+				14C4ED4EDDB009D40E4A4586ECCB5A2D /* Pods-WhatsLit-umbrella.h */,
+				6826A37D17CEE0E031FA595C45547FE2 /* Pods-WhatsLit.debug.xcconfig */,
+				F0D716EB6EE7EA4EBEEE34BA04FCEE9D /* Pods-WhatsLit.release.xcconfig */,
+			);
+			name = "Pods-WhatsLit";
+			path = "Target Support Files/Pods-WhatsLit";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				81C92446A1D447F34E864E693C8B2D16 /* Pods */,
+				09E8D4D0CC9611056A2D9006383B0B22 /* Products */,
+				5781E5252085FCD1BF5A6BEDBE23D2C5 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81C92446A1D447F34E864E693C8B2D16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9577B26D48806FD9F1BE8481E671287C /* CardStackController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9577B26D48806FD9F1BE8481E671287C /* CardStackController */ = {
+			isa = PBXGroup;
+			children = (
+				0D6CB51582184A735D5FFACBBEC7C7E6 /* CardStackController.swift */,
+				1B66ABC05D0A3AF7096D2CEBE5F16B12 /* Helpers.swift */,
+				4E621F680188D55A6FFC1E3290D6A99C /* Support Files */,
+			);
+			name = CardStackController;
+			path = CardStackController;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44D5347904CF754D6785B84253F2574A /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		08B1AE3695F2BC1221A9D5DC2F7C0827 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C092ADFFF9F838AA822DB637756828 /* Pods-WhatsLit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A0DE21B8A6FCB87630064DF01C161C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717AA6F14F6D1B2D585EF17C8F83F64D /* CardStackController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		242BD7EF2810813738F0CC4C21FEC81A /* Pods-WhatsLit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A428C26284702ED5F59A667C0EFB974 /* Build configuration list for PBXNativeTarget "Pods-WhatsLit" */;
+			buildPhases = (
+				08B1AE3695F2BC1221A9D5DC2F7C0827 /* Headers */,
+				9FFF247A620366FD3F635EEE99CB14C5 /* Sources */,
+				3E03B2526CEDE646DFC0ABF38E510420 /* Frameworks */,
+				1604B232861D28C944CFC586C9B5B041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BD11F809303C93B392BAA623CFCBBCD /* PBXTargetDependency */,
+			);
+			name = "Pods-WhatsLit";
+			productName = "Pods-WhatsLit";
+			productReference = 034B37BC9C07BB0CB8046A12404A5DC5 /* Pods_WhatsLit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DF2284EFE8D794DE537CE1E787AD7678 /* CardStackController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1760C0EA3DC0F563BB21E734294A4EE /* Build configuration list for PBXNativeTarget "CardStackController" */;
+			buildPhases = (
+				7A0DE21B8A6FCB87630064DF01C161C2 /* Headers */,
+				96812E636A8C1CC001020FCC5718888F /* Sources */,
+				F7EB46DBC3A8C6B0857B1CC4165BF9A8 /* Frameworks */,
+				A5AC7563C65CEE0398C7F734B7F5749A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardStackController;
+			productName = CardStackController;
+			productReference = AD583C98839C6B78D784C0E1D683EED4 /* CardStackController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 09E8D4D0CC9611056A2D9006383B0B22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF2284EFE8D794DE537CE1E787AD7678 /* CardStackController */,
+				242BD7EF2810813738F0CC4C21FEC81A /* Pods-WhatsLit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1604B232861D28C944CFC586C9B5B041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5AC7563C65CEE0398C7F734B7F5749A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96812E636A8C1CC001020FCC5718888F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A18AD6E78902E90276792FF87CC7B8D1 /* CardStackController-dummy.m in Sources */,
+				1EA5AB6574F9689012C4EAE4AF1A9088 /* CardStackController.swift in Sources */,
+				8FE9E0321B45743ED7BA57A364C9393F /* Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FFF247A620366FD3F635EEE99CB14C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D94C1EE01D8FD7AF612EEEF2E1F217CD /* Pods-WhatsLit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BD11F809303C93B392BAA623CFCBBCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CardStackController;
+			target = DF2284EFE8D794DE537CE1E787AD7678 /* CardStackController */;
+			targetProxy = 08DD6726C58C571A2B529305BB4DDC7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F0175651065532AB568D29F5C12FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0D716EB6EE7EA4EBEEE34BA04FCEE9D /* Pods-WhatsLit.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WhatsLit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WhatsLit/Pods-WhatsLit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5551CB60C1236C7C08191450F44B14A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6826A37D17CEE0E031FA595C45547FE2 /* Pods-WhatsLit.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WhatsLit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WhatsLit/Pods-WhatsLit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		EF8A8A98940891A3CD052750DE95F910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B1530177256CAEAB46F891C9B00112 /* CardStackController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CardStackController/CardStackController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CardStackController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CardStackController/CardStackController.modulemap";
+				PRODUCT_MODULE_NAME = CardStackController;
+				PRODUCT_NAME = CardStackController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4411F49EED73C12D7E8E2A2EBA86B73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B1530177256CAEAB46F891C9B00112 /* CardStackController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CardStackController/CardStackController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CardStackController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CardStackController/CardStackController.modulemap";
+				PRODUCT_MODULE_NAME = CardStackController;
+				PRODUCT_NAME = CardStackController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A428C26284702ED5F59A667C0EFB974 /* Build configuration list for PBXNativeTarget "Pods-WhatsLit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5551CB60C1236C7C08191450F44B14A8 /* Debug */,
+				0F0175651065532AB568D29F5C12FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */,
+				B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1760C0EA3DC0F563BB21E734294A4EE /* Build configuration list for PBXNativeTarget "CardStackController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4411F49EED73C12D7E8E2A2EBA86B73 /* Debug */,
+				EF8A8A98940891A3CD052750DE95F910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
