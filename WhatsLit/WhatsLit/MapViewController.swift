@@ -22,7 +22,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self;
         centerMapOnLocation(location: initialLocation)
         
-        fetchRestaurants()
+        // should fetch lit events at start
+        fetchLit()
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 
@@ -57,12 +58,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // custom image annotation
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: litPlace) as! MKMarkerAnnotationView
         annotationView.glyphImage = UIImage(named: litPlace.type!)
-        
+        annotationView.clusteringIdentifier = "cluster"
         if annotation is MKUserLocation { return nil }
         
         else {
             
-            annotationView.displayPriority = .required
+            annotationView.displayPriority = .defaultHigh
             
             if litPlace.type == "club" {
                 annotationView.markerTintColor = .purple
@@ -86,12 +87,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         //TODO : make segue to detail View or show table view of stories
         let selectedAnnotation = view.annotation
-        print(selectedAnnotation?.description)
+        print(selectedAnnotation?.description as Any)
     }
     
   
 
     // MARK: - Private Methods
+    
+    
+    @IBAction func allEvents(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+        fetchLit()
+    }
+    
+    private func fetchLit(){
+        // Populate with most recently posted
+        fetchBars()
+        fetchClubs()
+        fetchRestaurants()
+    }
     
     private func fetchClubs(){
         
@@ -108,6 +124,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
             DispatchQueue.main.async {
+//                self.mapView.removeAnnotations(self.mapView.annotations)
                 self.mapView.addAnnotations(places)
             }
             
@@ -130,6 +147,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
             DispatchQueue.main.async {
+//                self.mapView.removeAnnotations(self.mapView.annotations)
                 self.mapView.addAnnotations(places)
             }
             
@@ -160,12 +178,38 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func zoomIntoUser(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-//        fetchClubs()
+        fetchLit()
+        
+    }
+    
+    @IBAction func showUserClubs(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+        fetchClubs()
+    }
+    
+    
+    @IBAction func showuserRestaurants(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
         fetchRestaurants()
     }
     
+    
+    @IBAction func showUserBars(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+        fetchBars()
+    }
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
@@ -177,11 +221,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //TODO: send to detail view controller and prepare for camera + video
     }
     
     // MARK: - Properties
+    
+    
+    @IBOutlet weak var barsButton: UIBarButtonItem!
+    
+    @IBOutlet weak var clubButton: UIBarButtonItem!
+    
+    @IBOutlet weak var restaurantButton: UIBarButtonItem!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -190,7 +241,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let initialLocation = CLLocation(latitude: 37.760527, longitude: -122.443776)
     
-    let regionRadius: CLLocationDistance = 12000
+    let regionRadius: CLLocationDistance = 10000
+    var type: typeSelected = typeSelected.club
     
+    enum typeSelected :String {
+        case restaurant
+        case bar
+        case club
+    }
 
 }

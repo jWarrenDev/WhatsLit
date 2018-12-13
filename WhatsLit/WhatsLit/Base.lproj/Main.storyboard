@@ -23,13 +23,38 @@
                                     <outlet property="delegate" destination="VHB-6D-TKs" id="awA-Mu-zsV"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0n-al-l72">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Clubs" id="RAq-Fi-A2y">
+                                        <connections>
+                                            <action selector="showUserClubs:" destination="VHB-6D-TKs" id="krN-E9-53F"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hZ8-Ow-z8g"/>
+                                    <barButtonItem title="Restaurants" id="yTB-0C-9cA">
+                                        <connections>
+                                            <action selector="showuserRestaurants:" destination="VHB-6D-TKs" id="Xb6-Qh-G8D"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Uuj-y6-7BH"/>
+                                    <barButtonItem title="Bars" id="x5H-4o-7Zx">
+                                        <connections>
+                                            <action selector="showUserBars:" destination="VHB-6D-TKs" id="yar-9S-Otz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Q0n-al-l72" firstAttribute="bottom" secondItem="LWr-Ky-yng" secondAttribute="bottom" id="B5z-qN-Vh3"/>
                             <constraint firstItem="R9v-Yv-59E" firstAttribute="bottom" secondItem="LWr-Ky-yng" secondAttribute="bottom" id="FzL-UP-jqy"/>
                             <constraint firstItem="R9v-Yv-59E" firstAttribute="leading" secondItem="LWr-Ky-yng" secondAttribute="leading" id="Hf9-gt-Wqh"/>
                             <constraint firstItem="R9v-Yv-59E" firstAttribute="trailing" secondItem="LWr-Ky-yng" secondAttribute="trailing" id="HgW-qo-3gE"/>
                             <constraint firstItem="R9v-Yv-59E" firstAttribute="top" secondItem="ebl-n9-NeO" secondAttribute="top" id="Kgd-Wc-SLF"/>
+                            <constraint firstItem="Q0n-al-l72" firstAttribute="trailing" secondItem="LWr-Ky-yng" secondAttribute="trailing" id="L39-Nm-wFc"/>
+                            <constraint firstItem="Q0n-al-l72" firstAttribute="leading" secondItem="LWr-Ky-yng" secondAttribute="leading" id="UjJ-ib-h5x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LWr-Ky-yng"/>
                     </view>
@@ -39,14 +64,23 @@
                                 <action selector="zoomIntoUser:" destination="VHB-6D-TKs" id="8qA-Gq-wLx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="BPx-Wm-1EG">
-                            <connections>
-                                <segue destination="QnO-iH-UPT" kind="show" id="VAT-2l-lIb"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="IXM-Cn-VGG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yqe-YX-5kP">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="All Events"/>
+                                <connections>
+                                    <action selector="allEvents:" destination="VHB-6D-TKs" eventType="touchUpInside" id="yn8-bz-9LI"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barsButton" destination="x5H-4o-7Zx" id="rJ1-7K-sRf"/>
+                        <outlet property="clubButton" destination="RAq-Fi-A2y" id="6ht-Bs-gsH"/>
                         <outlet property="mapView" destination="R9v-Yv-59E" id="Zv1-Zd-nfN"/>
+                        <outlet property="restaurantButton" destination="yTB-0C-9cA" id="LSa-7J-Ihk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGe-pB-KCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
