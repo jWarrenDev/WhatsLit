@@ -25,7 +25,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         fetchClubs()
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
 
         
     }
@@ -52,39 +51,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         manager.stopUpdatingLocation()
     }
 
-//    // func to create annotations
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        let identifier = "cluster"
         guard let litPlace = annotation as? LitPlace else { return nil }
+        
         // custom image annotation
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: litPlace) as! MKMarkerAnnotationView
-       
-        annotationView.glyphTintColor = .white
-        annotationView.markerTintColor = .purple
         
         
-        
-        if annotation is MKUserLocation {
-            return nil
-            
-        }
-            
-        if annotation is MKClusterAnnotation {
-            
-        let markerAnnotationView = MKMarkerAnnotationView()
-//        markerAnnotationView.glyphText = String(annotation.memberAnnotations.count)
-        markerAnnotationView.markerTintColor = UIColor.red
-        markerAnnotationView.canShowCallout = false
-        
-        return markerAnnotationView
-    }
+        if annotation is MKUserLocation { return nil }
         
         else {
-        annotationView.clusteringIdentifier = MKMapViewDefaultClusterAnnotationViewReuseIdentifier
-        annotationView.displayPriority = .required
+            annotationView.displayPriority = .required
             annotationView.glyphTintColor = .white
             annotationView.markerTintColor = .purple
-            
+//            annotationView.canShowCallout = true
+            annotationView.isUserInteractionEnabled = true
+            annotationView.calloutOffset = CGPoint(x: -5, y: 5)
             annotationView.glyphImage = UIImage(named: "djicon")
             annotationView.canShowCallout = true
 
@@ -92,19 +75,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-//    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
-//
-//        var newMemberAnnotations = [MKMarkerAnnotationView]()
-//
-//        memberAnnotations.compactMap({
-//            let temp = $0 as MKMarkerAnnotationView
-//
-//        })
-//
-//
-//        let clusterAnnotation = MKClusterAnnotation(memberAnnotations: newMemberAnnotations as [MKAnnotation])
-//        return clusterAnnotation
-//    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let selectedAnnotation = view.annotation
+        print(selectedAnnotation?.description)
+    }
     
   
 
@@ -132,7 +106,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func zoomIntoUser(_ sender: Any) {
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-        fetchClubs()
+//        fetchClubs()
     }
     
     

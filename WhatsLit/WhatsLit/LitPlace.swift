@@ -28,7 +28,6 @@ class LitPlace: NSObject, MKAnnotation {
         self.id = id
         self.timestamp = timestamp
         self.title = mapItem?.placemark.name
-        
         self.url = mapItem?.url
         self.phoneNumber = mapItem?.phoneNumber
         self.coordinate = (mapItem?.placemark.coordinate)!
@@ -36,6 +35,6 @@ class LitPlace: NSObject, MKAnnotation {
     }
     
     override var description: String {
-        return ("\(self.id) + \(self.title)")
+        return String(describing: "\(self.id)" + "\( self.title))" + "\(self.url)" + "\(self.phoneNumber)")
     }
 }
