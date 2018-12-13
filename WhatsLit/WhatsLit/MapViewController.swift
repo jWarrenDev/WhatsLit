@@ -68,9 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if litPlace.type == "club" {
                 annotationView.markerTintColor = .purple
             } else if litPlace.type == "restaurant" {
-                annotationView.markerTintColor = .brown
-            } else if litPlace.type == "bar" {
                 annotationView.markerTintColor = .orange
+            } else if litPlace.type == "bar" {
+                annotationView.markerTintColor = .blue
             }
             annotationView.glyphTintColor = .white
             
@@ -86,8 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         //TODO : make segue to detail View or show table view of stories
-        let selectedAnnotation = view.annotation
-        print(selectedAnnotation?.description as Any)
+        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
     
   

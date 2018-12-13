@@ -81,6 +81,7 @@
                         <outlet property="clubButton" destination="RAq-Fi-A2y" id="6ht-Bs-gsH"/>
                         <outlet property="mapView" destination="R9v-Yv-59E" id="Zv1-Zd-nfN"/>
                         <outlet property="restaurantButton" destination="yTB-0C-9cA" id="LSa-7J-Ihk"/>
+                        <segue destination="QnO-iH-UPT" kind="showDetail" identifier="showDetail" id="lOS-zn-ewE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGe-pB-KCX" userLabel="First Responder" sceneMemberID="firstResponder"/>

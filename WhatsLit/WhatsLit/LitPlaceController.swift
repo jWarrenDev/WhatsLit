@@ -11,7 +11,18 @@ import MapKit
 
 class LitPlaceController {
     
-    public private(set) var places = [LitPlace]()
+    private(set) var places = [LitPlace]()
+    
+    func addVideo(video:Data, rating: Double, place: LitPlace){
+        
+        guard let index = places.firstIndex(of: place) else {NSLog("No Index"); return}
+        let newPlace = place
+        newPlace.video = video
+        newPlace.rating = rating
+        places.remove(at: index)
+        places.insert(newPlace, at: index)
+        
+    }
     
     func fetchLitPlaces(with name: String, region: MKCoordinateRegion, completion: @escaping ([LitPlace]? , Error?) -> Void){
         
