@@ -28,8 +28,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
-
-        
     }
     
     // MARK: - MapViewDelegate / CoreLocation
@@ -192,7 +190,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-        fetchLit()
+        defer {fetchLit()}
+        DispatchQueue.main.async {
+            self.mapView.reloadInputViews()
+        }
         
     }
     
@@ -232,6 +233,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //TODO: send to detail view controller and prepare for camera + video
         if segue.identifier == "showDetail" {
             let destVC = segue.destination as? CameraViewController
+            destVC?.litPlaceController = litPlaceController
+            
             guard let annotation = mapView.selectedAnnotations.first else {return}
 //            if annotation.isKind(of: MKClusterAnnotation.self){
 //                fatalError()
@@ -239,6 +242,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             guard let title = annotation.title else {return}
             let place = litPlaceController.getLitPlace(with: title!)
             destVC?.place = place
+            
+        }
+        if segue.identifier == "tableView" {
+            let destVC = segue.destination as? PlacesTableViewController
+            destVC?.litPlaceController = litPlaceController
         }
         
     }

@@ -19,7 +19,37 @@
 		D8D7E5D321C2FC5C004436C2 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7E5D221C2FC5C004436C2 /* CameraPreviewView.swift */; };
 		D8D7E5D521C2FD8C004436C2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7E5D421C2FD8C004436C2 /* CameraViewController.swift */; };
 		D8D7E5DB21C2FEA5004436C2 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7E5DA21C2FEA5004436C2 /* PlacesTableViewController.swift */; };
+		D8D7E5E221C57BB9004436C2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D7E5E121C57BB9004436C2 /* NotificationCenter.framework */; };
+		D8D7E5E521C57BB9004436C2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7E5E421C57BB9004436C2 /* TodayViewController.swift */; };
+		D8D7E5E821C57BB9004436C2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D7E5E621C57BB9004436C2 /* MainInterface.storyboard */; };
+		D8D7E5EC21C57BB9004436C2 /* WhatsLitExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8D7E5E021C57BB9004436C2 /* WhatsLitExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8D7E5F221C581B5004436C2 /* LitPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804DB0221BEDE36003E8D88 /* LitPlaceController.swift */; };
+		D8D7E5F321C581CF004436C2 /* LitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804DB0021BE2B28003E8D88 /* LitPlace.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8D7E5EA21C57BB9004436C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8BF45D321B0A55300E699A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8D7E5DF21C57BB9004436C2;
+			remoteInfo = WhatsLitExtention;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8D7E5F021C57BB9004436C2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8D7E5EC21C57BB9004436C2 /* WhatsLitExtention.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		066E3D1AB8563007F0ADBDAF /* Pods-WhatsLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsLit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsLit/Pods-WhatsLit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -38,6 +68,11 @@
 		D8D7E5D221C2FC5C004436C2 /* CameraPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		D8D7E5D421C2FD8C004436C2 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8D7E5DA21C2FEA5004436C2 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		D8D7E5E021C57BB9004436C2 /* WhatsLitExtention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WhatsLitExtention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D7E5E121C57BB9004436C2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D8D7E5E421C57BB9004436C2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D8D7E5E721C57BB9004436C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D8D7E5E921C57BB9004436C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +81,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				54AD109C46FA1B6155185232 /* Pods_WhatsLit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D7E5DD21C57BB9004436C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7E5E221C57BB9004436C2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				99334A84FC50C1A63CD1E161 /* Pods_WhatsLit.framework */,
+				D8D7E5E121C57BB9004436C2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -73,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				D8BF45DD21B0A55300E699A6 /* WhatsLit */,
+				D8D7E5E321C57BB9004436C2 /* WhatsLitExtention */,
 				D8BF45DC21B0A55300E699A6 /* Products */,
 				37E9CBCD83EEACAB84406E3A /* Pods */,
 				ACD75F1B66040D735E3EDCCE /* Frameworks */,
@@ -83,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D8BF45DB21B0A55300E699A6 /* WhatsLit.app */,
+				D8D7E5E021C57BB9004436C2 /* WhatsLitExtention.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +152,16 @@
 			path = WhatsLit;
 			sourceTree = "<group>";
 		};
+		D8D7E5E321C57BB9004436C2 /* WhatsLitExtention */ = {
+			isa = PBXGroup;
+			children = (
+				D8D7E5E421C57BB9004436C2 /* TodayViewController.swift */,
+				D8D7E5E621C57BB9004436C2 /* MainInterface.storyboard */,
+				D8D7E5E921C57BB9004436C2 /* Info.plist */,
+			);
+			path = WhatsLitExtention;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,15 +174,34 @@
 				D8BF45D821B0A55300E699A6 /* Frameworks */,
 				D8BF45D921B0A55300E699A6 /* Resources */,
 				A452758D6D5A1DD8037E79F8 /* [CP] Embed Pods Frameworks */,
+				D8D7E5F021C57BB9004436C2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D8D7E5EB21C57BB9004436C2 /* PBXTargetDependency */,
 			);
 			name = WhatsLit;
 			productName = WhatsLit;
 			productReference = D8BF45DB21B0A55300E699A6 /* WhatsLit.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D8D7E5DF21C57BB9004436C2 /* WhatsLitExtention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8D7E5ED21C57BB9004436C2 /* Build configuration list for PBXNativeTarget "WhatsLitExtention" */;
+			buildPhases = (
+				D8D7E5DC21C57BB9004436C2 /* Sources */,
+				D8D7E5DD21C57BB9004436C2 /* Frameworks */,
+				D8D7E5DE21C57BB9004436C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsLitExtention;
+			productName = WhatsLitExtention;
+			productReference = D8D7E5E021C57BB9004436C2 /* WhatsLitExtention.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -139,6 +214,9 @@
 				ORGANIZATIONNAME = Farhan;
 				TargetAttributes = {
 					D8BF45DA21B0A55300E699A6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D8D7E5DF21C57BB9004436C2 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -157,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				D8BF45DA21B0A55300E699A6 /* WhatsLit */,
+				D8D7E5DF21C57BB9004436C2 /* WhatsLitExtention */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +248,14 @@
 				D8BF45E921B0A55500E699A6 /* LaunchScreen.storyboard in Resources */,
 				D8BF45E621B0A55500E699A6 /* Assets.xcassets in Resources */,
 				D8BF45E421B0A55300E699A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D7E5DE21C57BB9004436C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7E5E821C57BB9004436C2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +324,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8D7E5DC21C57BB9004436C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7E5F321C581CF004436C2 /* LitPlace.swift in Sources */,
+				D8D7E5E521C57BB9004436C2 /* TodayViewController.swift in Sources */,
+				D8D7E5F221C581B5004436C2 /* LitPlaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8D7E5EB21C57BB9004436C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8D7E5DF21C57BB9004436C2 /* WhatsLitExtention */;
+			targetProxy = D8D7E5EA21C57BB9004436C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8BF45E221B0A55300E699A6 /* Main.storyboard */ = {
@@ -254,6 +359,14 @@
 				D8BF45E821B0A55500E699A6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D8D7E5E621C57BB9004436C2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8D7E5E721C57BB9004436C2 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 066E3D1AB8563007F0ADBDAF /* Pods-WhatsLit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AL899TPVP;
@@ -399,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47F103880E86213B9DFED241 /* Pods-WhatsLit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AL899TPVP;
@@ -410,6 +525,44 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.farhanf.WhatsLit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8D7E5EE21C57BB9004436C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = WhatsLitExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.farhanf.WhatsLit.WhatsLitExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8D7E5EF21C57BB9004436C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = WhatsLitExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.farhanf.WhatsLit.WhatsLitExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -432,6 +585,15 @@
 			buildConfigurations = (
 				D8BF45EE21B0A55500E699A6 /* Debug */,
 				D8BF45EF21B0A55500E699A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8D7E5ED21C57BB9004436C2 /* Build configuration list for PBXNativeTarget "WhatsLitExtention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8D7E5EE21C57BB9004436C2 /* Debug */,
+				D8D7E5EF21C57BB9004436C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
