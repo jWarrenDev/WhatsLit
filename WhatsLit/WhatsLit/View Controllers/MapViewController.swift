@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import CardStackController
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CardStackControllerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,18 +19,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 200
-        
+        mapView.showsCompass = true
         mapView.delegate = self;
         centerMapOnLocation(location: initialLocation)
         
         // should fetch lit events at start
         fetchLit()
         
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        registerAnnotationViewClasses()
         
     }
     
     // MARK: - MapViewDelegate / CoreLocation
+    
+    private func registerAnnotationViewClasses() {
+        mapView.register(RestaurantAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(ClubAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(BarAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(LitPlaceClusterView.self, forAnnotationViewWithReuseIdentifier: "nondefaultcluster")
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("Could not find location due to error: \(error)");
@@ -55,31 +62,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let litPlace = annotation as? LitPlace else { return nil }
         
-        // custom image annotation
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: litPlace) as! MKMarkerAnnotationView
-        annotationView.glyphImage = UIImage(named: litPlace.type!)
-        annotationView.clusteringIdentifier = "cluster"
         if annotation is MKUserLocation { return nil }
         
         else {
             
-            annotationView.displayPriority = .defaultHigh
-            
             if litPlace.type == "club" {
-                annotationView.markerTintColor = .purple
+                let AV = ClubAnnotationView(annotation: annotation, reuseIdentifier: ClubAnnotationView.ReuseID)
+                if self.shouldCluster {
+                    AV.clusteringIdentifier = "nondefaultcluster"
+                }
+                return AV
             } else if litPlace.type == "restaurant" {
-                annotationView.markerTintColor = .orange
-            } else if litPlace.type == "bar" {
-                annotationView.markerTintColor = .blue
+                let AV = RestaurantAnnotationView(annotation: annotation, reuseIdentifier: RestaurantAnnotationView.ReuseID)
+                if self.shouldCluster {
+                    AV.clusteringIdentifier = "nondefaultcluster"
+                }
+                return AV
+            } else  {
+                let AV = BarAnnotationView(annotation: annotation, reuseIdentifier: BarAnnotationView.ReuseID)
+                if self.shouldCluster {
+                    AV.clusteringIdentifier = "nondefaultcluster"
+                }
+                return AV
             }
-            annotationView.glyphTintColor = .white
             
-//            annotationView.canShowCallout = true
-            annotationView.isUserInteractionEnabled = true
-            annotationView.calloutOffset = CGPoint(x: -5, y: 5)
-            
-            
-        return annotationView
         }
     }
     
@@ -90,23 +96,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         guard let annotation = mapView.selectedAnnotations.first else {return}
         if annotation.isKind(of: MKClusterAnnotation.self){
             return
-        }
+        } else {
         
         performSegue(withIdentifier: "showDetail", sender: self)
-        
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let zoomWidth = mapView.visibleMapRect.size.width
+        let zoomLevel = Int(log2(zoomWidth))
+        self.currentZoomLevel = zoomLevel
     }
     
   
 
     // MARK: - Private Methods
-    
-    
-//    @IBAction func allEvents(_ sender: Any) {
-//        DispatchQueue.main.async {
-//            self.mapView.removeAnnotations(self.mapView.annotations)
-//        }
-//        fetchLit()
-//    }
     
     private func fetchLit(){
         // Populate with most recently posted
@@ -130,7 +134,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
             DispatchQueue.main.async {
-//                self.mapView.removeAnnotations(self.mapView.annotations)
                 self.mapView.addAnnotations(places)
             }
             
@@ -187,12 +190,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
-
-    locationManager.requestWhenInUseAuthorization()
-    locationManager.startUpdatingLocation()
-        defer {fetchLit()}
-        DispatchQueue.main.async {
-            self.mapView.reloadInputViews()
+    
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.fetchLit()
         }
         
     }
@@ -251,15 +253,49 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
+    
+    
     // MARK: - Properties
     
+    private let maxZoomLevel = 9
+    private var previousZoomLevel: Int?
+    private var currentZoomLevel: Int?  {
+        willSet {
+            self.previousZoomLevel = self.currentZoomLevel
+        }
+        didSet {
+            // if we have crossed the max zoom level, request a refresh
+            // so that all annotations are redrawn with clustering enabled/disabled
+            guard let currentZoomLevel = self.currentZoomLevel else { return }
+            guard let previousZoomLevel = self.previousZoomLevel else { return }
+            var refreshRequired = false
+            if currentZoomLevel > self.maxZoomLevel && previousZoomLevel <= self.maxZoomLevel {
+                refreshRequired = true
+            }
+            if currentZoomLevel <= self.maxZoomLevel && previousZoomLevel > self.maxZoomLevel {
+                refreshRequired = true
+            }
+            if refreshRequired {
+                // remove the annotations and re-add them, eg
+                let annotations = self.mapView.annotations
+                self.mapView.removeAnnotations(annotations)
+                self.mapView.addAnnotations(annotations)
+            }
+        }
+    }
+    
+    private var shouldCluster: Bool {
+        if let zoomLevel = self.currentZoomLevel, zoomLevel <= maxZoomLevel {
+            return false
+        }
+        return true
+    }
     
     @IBOutlet weak var barsButton: UIBarButtonItem!
     
     @IBOutlet weak var clubButton: UIBarButtonItem!
     
     @IBOutlet weak var restaurantButton: UIBarButtonItem!
-    
     
     @IBOutlet weak var mapView: MKMapView!
     

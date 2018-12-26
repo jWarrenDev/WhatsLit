@@ -36,9 +36,7 @@ class LitPlace: NSObject, MKAnnotation {
         
     }
     
-    
-    
     override var description: String {
-        return String(describing: "\(self.id)" + "\( self.title))" + "\(self.url)" + "\(self.phoneNumber)")
+        return "\(self.id)" + "\( self.title))" + "\(self.url)" + "\(self.phoneNumber)"
     }
 }

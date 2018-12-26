@@ -11,6 +11,9 @@
 		D804DAFF21BDF45C003E8D88 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804DAFE21BDF45C003E8D88 /* MapViewController.swift */; };
 		D804DB0121BE2B29003E8D88 /* LitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804DB0021BE2B28003E8D88 /* LitPlace.swift */; };
 		D804DB0321BEDE36003E8D88 /* LitPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804DB0221BEDE36003E8D88 /* LitPlaceController.swift */; };
+		D869861821D2BFD3006DA486 /* LitPlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869861721D2BFD3006DA486 /* LitPlaceAnnotationView.swift */; };
+		D869861B21D2C165006DA486 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869861A21D2C165006DA486 /* UIColor+Theme.swift */; };
+		D869862521D2C747006DA486 /* LitPlaceClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869862421D2C747006DA486 /* LitPlaceClusterView.swift */; };
 		D8BF45DF21B0A55300E699A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF45DE21B0A55300E699A6 /* AppDelegate.swift */; };
 		D8BF45E421B0A55300E699A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BF45E221B0A55300E699A6 /* Main.storyboard */; };
 		D8BF45E621B0A55500E699A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BF45E521B0A55500E699A6 /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		D804DAFE21BDF45C003E8D88 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D804DB0021BE2B28003E8D88 /* LitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitPlace.swift; sourceTree = "<group>"; };
 		D804DB0221BEDE36003E8D88 /* LitPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitPlaceController.swift; sourceTree = "<group>"; };
+		D869861721D2BFD3006DA486 /* LitPlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitPlaceAnnotationView.swift; sourceTree = "<group>"; };
+		D869861A21D2C165006DA486 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		D869862421D2C747006DA486 /* LitPlaceClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitPlaceClusterView.swift; sourceTree = "<group>"; };
 		D8BF45DB21B0A55300E699A6 /* WhatsLit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsLit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BF45DE21B0A55300E699A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BF45E321B0A55300E699A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +119,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D869861521D2B686006DA486 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8D7E5DA21C2FEA5004436C2 /* PlacesTableViewController.swift */,
+				D8D7E5D021C2F5D3004436C2 /* DetailViewController.swift */,
+				D804DAFE21BDF45C003E8D88 /* MapViewController.swift */,
+				D8D7E5D421C2FD8C004436C2 /* CameraViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D869861621D2B699006DA486 /* Model + Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D804DB0021BE2B28003E8D88 /* LitPlace.swift */,
+				D804DB0221BEDE36003E8D88 /* LitPlaceController.swift */,
+			);
+			path = "Model + Controller";
+			sourceTree = "<group>";
+		};
 		D8BF45D221B0A55300E699A6 = {
 			isa = PBXGroup;
 			children = (
@@ -137,14 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				D8BF45DE21B0A55300E699A6 /* AppDelegate.swift */,
-				D8D7E5DA21C2FEA5004436C2 /* PlacesTableViewController.swift */,
-				D8BF45E221B0A55300E699A6 /* Main.storyboard */,
-				D8D7E5D021C2F5D3004436C2 /* DetailViewController.swift */,
-				D804DAFE21BDF45C003E8D88 /* MapViewController.swift */,
-				D804DB0021BE2B28003E8D88 /* LitPlace.swift */,
+				D869861A21D2C165006DA486 /* UIColor+Theme.swift */,
 				D8D7E5D221C2FC5C004436C2 /* CameraPreviewView.swift */,
-				D804DB0221BEDE36003E8D88 /* LitPlaceController.swift */,
-				D8D7E5D421C2FD8C004436C2 /* CameraViewController.swift */,
+				D869862421D2C747006DA486 /* LitPlaceClusterView.swift */,
+				D869861721D2BFD3006DA486 /* LitPlaceAnnotationView.swift */,
+				D869861521D2B686006DA486 /* View Controllers */,
+				D8BF45E221B0A55300E699A6 /* Main.storyboard */,
+				D869861621D2B699006DA486 /* Model + Controller */,
 				D8BF45E521B0A55500E699A6 /* Assets.xcassets */,
 				D8BF45E721B0A55500E699A6 /* LaunchScreen.storyboard */,
 				D8BF45EA21B0A55500E699A6 /* Info.plist */,
@@ -314,9 +339,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D804DB0121BE2B29003E8D88 /* LitPlace.swift in Sources */,
+				D869861821D2BFD3006DA486 /* LitPlaceAnnotationView.swift in Sources */,
 				D8D7E5DB21C2FEA5004436C2 /* PlacesTableViewController.swift in Sources */,
 				D804DB0321BEDE36003E8D88 /* LitPlaceController.swift in Sources */,
 				D8D7E5D321C2FC5C004436C2 /* CameraPreviewView.swift in Sources */,
+				D869861B21D2C165006DA486 /* UIColor+Theme.swift in Sources */,
+				D869862521D2C747006DA486 /* LitPlaceClusterView.swift in Sources */,
 				D8D7E5D121C2F5D4004436C2 /* DetailViewController.swift in Sources */,
 				D8D7E5D521C2FD8C004436C2 /* CameraViewController.swift in Sources */,
 				D8BF45DF21B0A55300E699A6 /* AppDelegate.swift in Sources */,

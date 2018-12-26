@@ -158,7 +158,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
         {
             return device
-        } else {
+        } else {//back camera error, fix for ipods and old ipads
             fatalError("missing back camera")
         }
         

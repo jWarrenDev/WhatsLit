@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "baricon.pdf",
+      "filename" : "bar.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "baricon-1.pdf",
+      "filename" : "bar-1.png",
       "scale" : "2x"
     },
     {
@@ -18,5 +18,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }
