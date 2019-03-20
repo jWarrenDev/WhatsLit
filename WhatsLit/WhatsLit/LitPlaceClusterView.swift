@@ -8,7 +8,7 @@
 
 import MapKit
 
-class LitPlaceClusterView: MKMarkerAnnotationView {
+class LitPlaceClusterView: MKAnnotationView {
 
     //  MARK: Properties
     internal override var annotation: MKAnnotation? { willSet { newValue.flatMap(configure(with:)) } }

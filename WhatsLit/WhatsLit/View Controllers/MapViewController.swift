@@ -33,10 +33,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: - MapViewDelegate / CoreLocation
     
     private func registerAnnotationViewClasses() {
+        mapView.register(LitPlaceClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         mapView.register(RestaurantAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.register(ClubAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.register(BarAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        mapView.register(LitPlaceClusterView.self, forAnnotationViewWithReuseIdentifier: "nondefaultcluster")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -69,19 +69,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if litPlace.type == "club" {
                 let AV = ClubAnnotationView(annotation: annotation, reuseIdentifier: ClubAnnotationView.ReuseID)
                 if self.shouldCluster {
-                    AV.clusteringIdentifier = "nondefaultcluster"
+                    AV.clusteringIdentifier = "cluster"
                 }
                 return AV
             } else if litPlace.type == "restaurant" {
                 let AV = RestaurantAnnotationView(annotation: annotation, reuseIdentifier: RestaurantAnnotationView.ReuseID)
                 if self.shouldCluster {
-                    AV.clusteringIdentifier = "nondefaultcluster"
+                    AV.clusteringIdentifier = "cluster"
                 }
                 return AV
             } else  {
                 let AV = BarAnnotationView(annotation: annotation, reuseIdentifier: BarAnnotationView.ReuseID)
                 if self.shouldCluster {
-                    AV.clusteringIdentifier = "nondefaultcluster"
+                    AV.clusteringIdentifier = "cluster"
                 }
                 return AV
             }
@@ -216,10 +216,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     @IBAction func showUserBars(_ sender: Any) {
-        DispatchQueue.main.async {
-            self.mapView.removeAnnotations(self.mapView.annotations)
+        
+        if showBars {
+            DispatchQueue.main.async {
+                self.mapView.removeAnnotations(self.mapView.annotations)
+            }
+            fetchBars()
         }
-        fetchBars()
+        
+        
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -256,6 +261,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     // MARK: - Properties
+    
+    var showClubs = true
+    var showBars = true
+    var showRestaurants = true
     
     private let maxZoomLevel = 9
     private var previousZoomLevel: Int?
